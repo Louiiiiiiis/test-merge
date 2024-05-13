@@ -1,0 +1,10 @@
+--- MENU
+- Choix du joueur
+- Lancer une partie
+
+--- JEU
+- Lancer les dés
+- Perdre ou Gagner de la vie
+- Déplacer le joueur
+- Perdre ou Gagner le jeu
+- Tomber sur une case spéciale
