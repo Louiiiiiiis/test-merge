@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.Random;
 import javax.imageio.ImageIO;
 import javax.swing.Timer;
+import mainFramr.main;
 
 /**
  *
@@ -32,13 +33,20 @@ public class AffichageDes extends javax.swing.JPanel {
     int currentIndex = 0;
     int nbAAfficherD1 = 0;
     int nbAAfficherD2 = 0;
+ 
+    
     public AffichageDes() {
         initComponents();
+        
+    }
+
+    public void Afficher(int nbD1, int nbD2){
         try {
             for (int i = 0; i < 6; i++) {
                 String n = i+1 + "";
-                String path = getClass().getResource("/"+n +".PNG").getPath();
-                
+                //String path = getClass().getResource("/"+n +".PNG").getPath();
+                String path = "C:\\Users\\ASUS\\Desktop\\Document_Fac\\L3\\projetPirate\\test-merge\\src\\main\\resources/"+n +".PNG";
+                System.out.println(path);
                 images[i] = ImageIO.read(new File(path));
 
                 timer = new Timer(50, (ActionEvent e) -> {
@@ -58,8 +66,12 @@ public class AffichageDes extends javax.swing.JPanel {
         } catch (IOException ex) {
             System.out.println("Erreur du chargement de l'image");
         }
+        compteur = 0;
+        nbAAfficherD1 = nbD1-1;
+        nbAAfficherD2 = nbD2-1;
+        timer.start();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,44 +81,20 @@ public class AffichageDes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-
-        jButton1.setText("jButton1");
-        jButton1.setAlignmentY(0.0F);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(jButton1)
-                .addContainerGap(174, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(240, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(38, 38, 38))
+            .addGap(0, 301, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        Afficher(5, 2);
-    }//GEN-LAST:event_jButton1MouseClicked
   
-    void Afficher(int nbD1, int nbD2){
-        compteur = 0;
-        nbAAfficherD1 = nbD1-1;
-        nbAAfficherD2 = nbD2-1;
-        timer.start();
-    }    
+    
+    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -118,6 +106,5 @@ public class AffichageDes extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
